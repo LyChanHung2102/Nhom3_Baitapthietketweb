@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2 - Bảng Giá Dịch Vụ</title>
+    <style>
+        :root {
+            --color-primary: #333;
+            --color-accent: #007bff;
+            --color-bg: #f8f9fa;
+            --spacing: 20px;
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg);
+            font-family: Arial, sans-serif;
+            padding: var(--spacing);
+        }
+        h1 { margin-bottom: 40px; color: var(--color-primary); }
+        .pricing-wrapper {
+            display: flex;
+            gap: var(--spacing);
+            align-items: stretch;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 30px var(--spacing);
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0,123,255,0.3);
+            background: var(--color-accent);
+            color: #fff;
+        }
+        .card:hover .price,
+        .card:hover .desc,
+        .card:hover ul li { color: #fff; }
+        .card:hover .btn { background: #fff; color: var(--color-accent); }
+        .card h2 { font-size: 1.4rem; margin-bottom: 10px; }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+        .desc { color: #777; font-size: 0.9rem; margin-bottom: 20px; }
+        ul {
+            list-style: none;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        ul li::before { content: "✔ "; color: #28a745; }
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: var(--color-accent);
+            color: #fff;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: auto;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.85; }
+        .card.featured { border: 3px solid var(--color-accent); }
+        .badge {
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .card:hover .badge { background: #fff; color: var(--color-accent); }
+    </style>
+</head>
+<body>
+    <h1>💼 Bảng Giá Dịch Vụ</h1>
+    <div class="pricing-wrapper">
+        <div class="card">
+            <h2>Basic</h2>
+            <div class="price">$9<span style="font-size:1rem">/tháng</span></div>
+            <p class="desc">Phù hợp cho cá nhân và dự án nhỏ.</p>
+            <ul>
+                <li>5 GB lưu trữ</li>
+                <li>1 tên miền</li>
+                <li>Email hỗ trợ</li>
+                <li>Băng thông 10 GB</li>
+            </ul>
+            <a href="#" class="btn">Mua ngay</a>
+        </div>
+
+        <div class="card featured">
+            <span class="badge">⭐ Phổ biến nhất</span>
+            <h2>Pro</h2>
+            <div class="price">$29<span style="font-size:1rem">/tháng</span></div>
+            <p class="desc">Dành cho doanh nghiệp vừa và nhỏ muốn mở rộng quy mô.</p>
+            <ul>
+                <li>50 GB lưu trữ</li>
+                <li>5 tên miền</li>
+                <li>Hỗ trợ 24/7</li>
+                <li>Băng thông không giới hạn</li>
+                <li>SSL miễn phí</li>
+            </ul>
+            <a href="#" class="btn">Mua ngay</a>
+        </div>
+
+        <div class="card">
+            <h2>Enterprise</h2>
+            <div class="price">$99<span style="font-size:1rem">/tháng</span></div>
+            <p class="desc">Giải pháp toàn diện cho doanh nghiệp lớn với nhu cầu cao cấp và bảo mật tối đa theo tiêu chuẩn quốc tế.</p>
+            <ul>
+                <li>500 GB lưu trữ</li>
+                <li>Tên miền không giới hạn</li>
+                <li>Dedicated support</li>
+                <li>Băng thông không giới hạn</li>
+                <li>SSL + Firewall</li>
+                <li>SLA 99.99%</li>
+            </ul>
+            <a href="#" class="btn">Mua ngay</a>
+        </div>
+    </div>
+</body>
+</html>

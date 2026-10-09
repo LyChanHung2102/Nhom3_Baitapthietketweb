@@ -1,0 +1,163 @@
+/* Weapon Tabs Container */
+.armory-section {
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 150px);
+}
+
+.tabs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hide Radio Buttons */
+input[name="weapon-tabs"] {
+    display: none;
+}
+
+/* Tab Navigation (Horizontal Scrollable) */
+.tabs-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4655 #1f2326;
+}
+
+.tabs-nav::-webkit-scrollbar {
+    height: 6px;
+}
+.tabs-nav::-webkit-scrollbar-track {
+    background: #1f2326;
+}
+.tabs-nav::-webkit-scrollbar-thumb {
+    background-color: #ff4655;
+    border-radius: 3px;
+}
+
+.tabs-nav label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #696969;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.tabs-nav label:hover {
+    color: #fff;
+}
+
+/* Tab Logic */
+#tab-sidearms:checked ~ .tabs-nav label[for="tab-sidearms"],
+#tab-smgs:checked ~ .tabs-nav label[for="tab-smgs"],
+#tab-shotguns:checked ~ .tabs-nav label[for="tab-shotguns"],
+#tab-rifles:checked ~ .tabs-nav label[for="tab-rifles"],
+#tab-snipers:checked ~ .tabs-nav label[for="tab-snipers"],
+#tab-heavy:checked ~ .tabs-nav label[for="tab-heavy"] {
+    color: #ff4655;
+    border-bottom: 4px solid #ff4655;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+#tab-sidearms:checked ~ .tabs-content .panel-sidearms,
+#tab-smgs:checked ~ .tabs-content .panel-smgs,
+#tab-shotguns:checked ~ .tabs-content .panel-shotguns,
+#tab-rifles:checked ~ .tabs-content .panel-rifles,
+#tab-snipers:checked ~ .tabs-content .panel-snipers,
+#tab-heavy:checked ~ .tabs-content .panel-heavy {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Category Description */
+.category-desc {
+    font-size: 1.2rem;
+    color: #ece8e1;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Responsive CSS Grid */
+.weapon-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .weapon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .weapon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Weapon Card */
+.weapon-card {
+    background-color: #1f2326;
+    border-left: 4px solid transparent;
+    padding: 1.5rem;
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+    transition: transform 0.3s ease, border-left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.weapon-card:hover {
+    transform: translateY(-5px);
+    border-left: 4px solid #ff4655;
+}
+
+.img-placeholder {
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.weapon-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.weapon-info p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #ece8e1;
+    line-height: 1.5;
+}
+
+.img-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Nguyễn Văn A</title>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         THẺ <header>:
+         Đại diện cho phần đầu của trang web hoặc một phân đoạn tài liệu.
+         Vai trò: Chứa thông tin nhận diện thương hiệu cá nhân (tên, chức danh, logo)
+         và cung cấp thanh điều hướng chính giúp người dùng nhanh chóng di chuyển
+         đến các phần nội dung quan trọng trên trang.
+         ========================================================================== -->
+    <header>
+        <h1>Nguyễn Văn A</h1>
+        <p>Lập trình viên Web | Frontend & Backend Developer</p>
+
+        <!-- THẺ <nav>:
+             Đại diện cho khu vực điều hướng chính của trang web.
+             Vai trò: Nhóm các liên kết điều hướng nội bộ (anchor links) trỏ trực tiếp
+             đến từng phần nội dung tương ứng bên trong thẻ <main>. -->
+        <nav aria-label="Điều hướng chính">
+            <ul>
+                <li><a href="#gioi-thieu">Giới thiệu bản thân</a></li>
+                <li><a href="#du-an">Dự án nổi bật</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==========================================================================
+         THẺ <main>:
+         Đại diện cho khu vực nội dung chính, cốt lõi và duy nhất của trang tài liệu.
+         Vai trò: Chứa toàn bộ nội dung độc nhất của trang web, không được lặp lại
+         ở các trang khác (loại trừ các thành phần dùng chung như header, footer,
+         sidebar chung). Mỗi tài liệu HTML chỉ nên có một thẻ <main> hiển thị.
+         ========================================================================== -->
+    <main>
+
+        <!-- THẺ <section> THỨ 1: GIỚI THIỆU BẢN THÂN
+             Đại diện cho một phân đoạn tài liệu có chủ đề độc lập và liên kết chặt chẽ.
+             Vai trò: Trình bày thông tin lý lịch cá nhân, mục tiêu nghề nghiệp, kỹ năng
+             chuyên môn và học vấn của chủ nhân portfolio. -->
+        <section id="gioi-thieu">
+            <h2>Giới thiệu bản thân</h2>
+            
+            <p>
+                Xin chào! Tôi là <strong>Nguyễn Văn A</strong>, một lập trình viên web đam mê 
+                xây dựng các ứng dụng web chuẩn W3C, thân thiện với người dùng và tối ưu hiệu năng.
+            </p>
+
+            <h3>Kỹ năng chuyên môn</h3>
+            <ul>
+                <li>Ngôn ngữ: HTML5, CSS3, JavaScript, Python</li>
+                <li>Công nghệ & Nền tảng: React, Node.js, Express, Git & GitHub</li>
+                <li>Kiến thức web: Web Accessibility (a11y), Semantic Web, Responsive Design</li>
+            </ul>
+
+            <h3>Mục tiêu nghề nghiệp</h3>
+            <p>
+                Phát triển bản thân trở thành một Kỹ sư Phần mềm Fullstack vững vàng kiến trúc, 
+                đóng góp vào các dự án mã nguồn mở và xây dựng những giải pháp chuyển đổi số có giá trị cao.
+            </p>
+        </section>
+
+        <!-- THẺ <section> THỨ 2: DỰ ÁN NỔI BẬT
+             Đại diện cho một phân đoạn tài liệu dành riêng để giới thiệu các sản phẩm đã thực hiện.
+             Vai trò: Tổ chức danh sách các dự án tiêu biểu kèm mô tả chi tiết, công nghệ sử dụng
+             và đường dẫn tham khảo. -->
+        <section id="du-an">
+            <h2>Dự án nổi bật</h2>
+
+            <!-- THẺ <article>:
+                 Đại diện cho một mẩu nội dung độc lập, tự trọn vẹn và có thể tái sử dụng
+                 hoặc trích dẫn riêng lẻ mà vẫn giữ nguyên ý nghĩa hoàn chỉnh.
+                 Vai trò: Đóng gói toàn bộ thông tin về một dự án cụ thể. -->
+            <article>
+                <h3>1. Hệ thống Quản trị Bán hàng Trực tuyến</h3>
+                <p>
+                    <strong>Mô tả:</strong> Nền tảng thương mại điện tử hỗ trợ quản lý đơn hàng, 
+                    sản phẩm và tích hợp cổng thanh toán trực tuyến tự động.
+                </p>
+                <p><strong>Công nghệ:</strong> React, Node.js, MongoDB, RESTful API</p>
+                <p>
+                    <a href="https://github.com/example/ecommerce-system" target="_blank" rel="noopener noreferrer">
+                        Xem mã nguồn trên GitHub
+                    </a>
+                </p>
+            </article>
+
+            <!-- THẺ <article> DỰ ÁN 2 -->
+            <article>
+                <h3>2. Ứng dụng Ghi chú Cá nhân Thông minh</h3>
+                <p>
+                    <strong>Mô tả:</strong> Ứng dụng web tiến bộ (PWA) cho phép ghi chú nhanh, 
+                    đồng bộ hóa dữ liệu thời gian thực và hỗ trợ làm việc ngay cả khi ngoại tuyến (offline).
+                </p>
+                <p><strong>Công nghệ:</strong> HTML5, Vanilla JavaScript, IndexedDB, Service Workers</p>
+                <p>
+                    <a href="https://github.com/example/smart-notes" target="_blank" rel="noopener noreferrer">
+                        Xem mã nguồn trên GitHub
+                    </a>
+                </p>
+            </article>
+
+            <!-- THẺ <article> DỰ ÁN 3 -->
+            <article>
+                <h3>3. Nền tảng Blog Công Nghệ Chia Sẻ Kiến Thức</h3>
+                <p>
+                    <strong>Mô tả:</strong> Trang blog cá nhân tích hợp trình soạn thảo Markdown, 
+                    hệ thống bình luận tương tác và tối ưu hóa công cụ tìm kiếm (SEO).
+                </p>
+                <p><strong>Công nghệ:</strong> Next.js, Tailwind CSS, PostgreSQL</p>
+                <p>
+                    <a href="https://github.com/example/tech-blog" target="_blank" rel="noopener noreferrer">
+                        Xem mã nguồn trên GitHub
+                    </a>
+                </p>
+            </article>
+        </section>
+
+        <!-- THẺ <section> THỨ 3: LIÊN HỆ
+             Đại diện cho phân đoạn kết nối và tiếp nhận thông tin từ người ghé thăm.
+             Vai trò: Cung cấp biểu mẫu gửi thư trực tiếp và thông tin liên lạc chi tiết. -->
+        <section id="lien-he">
+            <h2>Liên hệ</h2>
+            <p>
+                Bạn có dự án cần hợp tác hoặc câu hỏi muốn trao đổi? Hãy gửi thông điệp cho tôi qua biểu mẫu bên dưới:
+            </p>
+
+            <!-- BIỂU MẪU LIÊN HỆ DÙNG CÁC THẺ HTML5 CHUẨN (KHÔNG DÙNG CSS) -->
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Gửi tin nhắn trực tiếp</legend>
+
+                    <p>
+                        <label for="ho-ten">Họ và tên:</label><br>
+                        <input type="text" id="ho-ten" name="ho-ten" placeholder="Nhập họ và tên..." required>
+                    </p>
+
+                    <p>
+                        <label for="email">Địa chỉ Email:</label><br>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                    </p>
+
+                    <p>
+                        <label for="tieu-de">Tiêu đề:</label><br>
+                        <input type="text" id="tieu-de" name="tieu-de" placeholder="Tiêu đề trao đổi..." required>
+                    </p>
+
+                    <p>
+                        <label for="tin-nhan">Nội dung tin nhắn:</label><br>
+                        <textarea id="tin-nhan" name="tin-nhan" rows="5" cols="40" placeholder="Viết nội dung tin nhắn tại đây..." required></textarea>
+                    </p>
+
+                    <p>
+                        <button type="submit">Gửi thông điệp</button>
+                        <button type="reset">Nhập lại</button>
+                    </p>
+                </fieldset>
+            </form>
+
+            <!-- THẺ <address>:
+                 Đại diện cho thông tin liên hệ của tác giả hoặc chủ sở hữu tài liệu.
+                 Vai trò: Cung cấp địa chỉ email, số điện thoại hoặc địa chỉ văn phòng hợp lệ theo ngữ nghĩa HTML5. -->
+            <h3>Thông tin liên hệ trực tiếp</h3>
+            <address>
+                <p>Email: <a href="mailto:nguyenvana@example.com">nguyenvana@example.com</a></p>
+                <p>Điện thoại: <a href="tel:+84901234567">+84 90 123 4567</a></p>
+                <p>Địa chỉ: Quận 1, Thành phố Hồ Chí Minh, Việt Nam</p>
+            </address>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         THẺ <footer>:
+         Đại diện cho phần chân trang của toàn bộ tài liệu hoặc phân đoạn tài liệu.
+         Vai trò: Chứa thông tin bản quyền (copyright), thông tin tác giả,
+         chính sách và các liên kết mạng xã hội kết nối ngoại vi.
+         ========================================================================== -->
+    <footer>
+        <p>&copy; 2026 Nguyễn Văn A. Tất cả các quyền được bảo lưu.</p>
+
+        <!-- DANH SÁCH LIÊN KẾT MẠNG XÃ HỘI -->
+        <p>Kết nối với tôi trên mạng xã hội:</p>
+        <ul>
+            <li>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    Twitter / X
+                </a>
+            </li>
+            <li>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    Facebook
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+</body>
+</html>

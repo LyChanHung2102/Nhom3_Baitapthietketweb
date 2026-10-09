@@ -1,0 +1,440 @@
+================================================================
+HOẠT ĐỘNG 2: XÂY DỰNG HỆ THỐNG LƯỚI (PORTFOLIO CÁ NHÂN)
+================================================================
+
+----------------------------------------------------------------
+PROMPT 1 - LAYOUT TỔNG THỂ (CSS GRID)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Dựa trên cấu trúc HTML5 đã có, hãy viết CSS Grid để dàn trang:
+Header chiếm toàn bộ chiều ngang, bên dưới là Sidebar rộng 250px
+và Main content chiếm phần còn lại, cuối cùng là Footer. Sử dụng
+thuộc tính grid-template-areas để quản lý."
+
+KẾT QUẢ PROMPT 1:
+AI sinh ra CSS với body được gán display: grid và grid-template-areas
+gồm 3 vùng: "header", "main" (bao gồm sidebar + content), "footer".
+Sidebar được định nghĩa rộng 250px cố định, main content chiếm
+phần còn lại bằng 1fr. Header và Footer trải dài toàn bộ chiều
+ngang. Cấu trúc grid-template-areas rõ ràng, dễ đọc và dễ chỉnh
+sửa sau này. Không có thuộc tính float hay position thừa.
+
+---
+
+PROMPT 2:
+"Thêm CSS cho phần Sidebar: nền xám nhạt (#f0f0f0), padding 20px,
+tiêu đề 'Quick Links' in hoa với đường kẻ dưới màu xanh. Các
+link trong sidebar hiển thị dạng block, có hover effect đổi nền
+xanh (#007bff) và chữ trắng, bo góc 8px."
+
+KẾT QUẢ PROMPT 2:
+AI tạo CSS cho aside với background: #f0f0f0, padding: 40px 20px.
+Thẻ h3 có text-transform: uppercase, letter-spacing: 1px và
+border-bottom: 2px solid #007bff. Các thẻ a trong ul được gán
+display: block, padding: 10px 15px, border-radius: 8px. Hover
+chuyển background sang #007bff và color sang #fff với transition
+0.2s mượt mà. Sidebar trông gọn gàng và chuyên nghiệp.
+
+---
+
+PROMPT 3:
+"Viết CSS cho phần Header: nền tối (#333), chữ trắng, dùng Flexbox
+để logo nằm bên trái và nav nằm bên phải. Các link nav nằm ngang
+hàng nhau với gap 20px, hover đổi màu xanh."
+
+KẾT QUẢ PROMPT 3:
+AI tạo header với display: flex, justify-content: space-between,
+align-items: center, padding: 15px 40px, background: #333. Logo
+dùng font-size lớn hơn, nav ul dùng display: flex, list-style: none,
+gap: 20px. Các thẻ a có color: #fff, text-decoration: none, hover
+đổi color: #007bff. Header hiển thị đúng trên mọi kích thước màn hình.
+
+---
+
+----------------------------------------------------------------
+PROMPT 2 - SKILLS SECTION (FLEXBOX)
+----------------------------------------------------------------
+
+PROMPT 4:
+"Hãy viết CSS cho danh mục 'Skills'. Sử dụng Flexbox để các item
+hiển thị dạng hàng ngang, tự động xuống dòng (flex-wrap), khoảng
+cách giữa các item là 15px và căn giữa các item."
+
+KẾT QUẢ PROMPT 4:
+AI tạo .skill-list với display: flex, flex-wrap: wrap, gap: 15px,
+justify-content: center. Mỗi .skill có background: #f0f0f0,
+border-radius: 10px, padding: 10px 20px. Khi thu nhỏ trình duyệt,
+các skill tag tự động xuống dòng mà không bị tràn ra ngoài.
+Khoảng cách gap: 15px đồng nhất theo cả chiều ngang lẫn chiều dọc.
+Kết quả trông giống các trang portfolio chuyên nghiệp.
+
+---
+
+PROMPT 5:
+"Thêm màu sắc khác nhau cho từng skill tag để phân biệt nhóm
+kỹ năng: HTML/CSS màu cam, JavaScript màu vàng, C#/ASP.NET màu
+tím, SQL màu xanh lá, Git màu đỏ, Networking màu xanh dương.
+Thêm hover effect nhẹ scale(1.05)."
+
+KẾT QUẢ PROMPT 5:
+AI thêm các class riêng cho từng nhóm skill với màu nền khác nhau.
+HTML có background: #e8470a color: #fff, CSS có background: #264de4
+color: #fff, JavaScript có background: #f7df1e color: #333, C# có
+background: #9b59b6 color: #fff. Hover thêm transform: scale(1.05)
+và box-shadow nhẹ. Khu vực Skills trở nên sinh động và dễ nhìn hơn
+so với phiên bản chỉ dùng màu xám đồng nhất.
+
+---
+
+----------------------------------------------------------------
+PROMPT 3 - DEBUG & REFACTOR (TỐI ƯU MÃ NGUỒN)
+----------------------------------------------------------------
+
+PROMPT 6:
+"Đây là đoạn mã CSS do AI sinh ra. Hãy tối ưu hóa nó bằng cách
+loại bỏ các thuộc tính mặc định không cần thiết, gộp các class
+có thuộc tính giống nhau và sử dụng Shorthand properties (ví dụ:
+gộp margin-top/bottom/left/right thành margin)."
+
+KẾT QUẢ PROMPT 6:
+AI phát hiện và loại bỏ các thuộc tính thừa như display: block
+trên thẻ div, font-style: normal (mặc định), border: none trên
+các thẻ không có border. Gộp margin-top: 10px, margin-bottom: 10px,
+margin-left: 0, margin-right: 0 thành margin: 10px 0. Gộp
+padding-top/right/bottom/left thành shorthand padding. Mã nguồn
+giảm từ 180 dòng xuống còn 134 dòng, dễ đọc và bảo trì hơn.
+
+---
+
+PROMPT 7:
+"Thay thế tất cả các giá trị màu sắc và khoảng cách cứng trong
+CSS bằng CSS variables. Định nghĩa --color-primary, --color-accent,
+--color-bg-light, --spacing-sm, --spacing-md, --spacing-lg,
+--spacing-xl, --radius trong :root."
+
+KẾT QUẢ PROMPT 7:
+AI định nghĩa đầy đủ 9 CSS variables trong :root. Toàn bộ file
+CSS được cập nhật thay thế #333 bằng var(--color-primary), #007bff
+bằng var(--color-accent), 10px bằng var(--spacing-sm), v.v. Khi
+cần thay đổi màu chủ đạo của toàn trang, chỉ cần sửa 1 dòng
+trong :root thay vì tìm kiếm và thay thế thủ công. Kiểm tra bằng
+F12 không thấy thuộc tính nào bị chồng chéo hay xung đột.
+
+
+================================================================
+PHẦN MỞ RỘNG - PROMPT & KẾT QUẢ TỪNG BÀI
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 1: HOLY GRAIL LAYOUT (GRID MASTER)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Hãy tạo cấu trúc HTML5 cho layout Holy Grail gồm 5 phần:
+Header, Sidebar trái (Menu), Main Content, Sidebar phải (Quảng cáo)
+và Footer. Sử dụng các thẻ semantic như <header>, <nav>, <main>,
+<aside>, <footer>."
+
+KẾT QUẢ PROMPT 1:
+AI đã tạo ra cấu trúc HTML5 đầy đủ với các thẻ semantic đúng chuẩn.
+Header chứa tiêu đề trang, nav sidebar trái chứa danh sách menu,
+main chứa nội dung chính với nhiều đoạn văn placeholder, aside bên
+phải chứa 3 ô quảng cáo, footer chứa thông tin bản quyền. Tất cả
+các thẻ đều có class rõ ràng để dễ dàng áp dụng CSS.
+
+---
+
+PROMPT 2:
+"Viết CSS Grid cho layout Holy Grail vừa tạo. Sử dụng
+grid-template-areas với 3 cột: sidebar trái 200px, main content
+chiếm phần còn lại (1fr), sidebar phải 200px. Header và Footer
+chiếm toàn bộ chiều ngang. Đảm bảo khi nội dung Main Content dài
+ra, hai Sidebar vẫn giữ nguyên tỉ lệ chiều cao bằng align-self: start
+và position: sticky."
+
+KẾT QUẢ PROMPT 2:
+AI sinh ra CSS Grid với grid-template-areas chính xác, định nghĩa
+3 vùng "header header header", "sidebar main aside", "footer footer footer".
+Hai sidebar được gán align-self: start và position: sticky top: 20px
+nên khi cuộn trang, sidebar không bị kéo dài theo main content.
+Kết quả hiển thị đúng như thiết kế Holy Grail kinh điển, responsive
+tốt khi thu nhỏ trình duyệt.
+
+---
+
+PROMPT 3:
+"Thêm màu sắc và padding cho từng vùng để dễ phân biệt. Sidebar
+dùng màu nền xám nhạt (#f0f0f0), Main Content dùng nền trắng,
+Header và Footer dùng nền tối (#333) chữ trắng. Bo góc 8px cho
+tất cả các vùng và thêm gap 20px giữa các vùng."
+
+KẾT QUẢ PROMPT 3:
+AI bổ sung đầy đủ màu sắc theo yêu cầu, các vùng được phân biệt
+rõ ràng bằng màu nền khác nhau. Border-radius 8px tạo giao diện
+hiện đại, gap 20px tạo khoảng cách thoáng giữa các vùng. Không
+có thuộc tính float hay position: absolute thừa trong mã nguồn.
+
+
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 2: BẢNG GIÁ DỊCH VỤ (FLEXBOX CARDS)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Tạo 3 thẻ bảng giá (Pricing Cards) nằm ngang hàng nhau gồm:
+Basic ($9/tháng), Pro ($29/tháng), Enterprise ($99/tháng). Sử dụng
+Flexbox để căn giữa và đảm bảo nút 'Mua ngay' luôn nằm sát đáy
+mỗi card dù nội dung mô tả dài ngắn khác nhau."
+
+KẾT QUẢ PROMPT 1:
+AI tạo ra 3 card với cấu trúc Flexbox flex-direction: column. Danh
+sách tính năng được gán flex: 1 để chiếm hết không gian còn lại,
+nút "Mua ngay" được đẩy xuống đáy bằng margin-top: auto. Khi thử
+thêm nội dung dài vào card Enterprise, nút vẫn giữ nguyên vị trí
+sát đáy - đúng yêu cầu.
+
+---
+
+PROMPT 2:
+"Thêm hiệu ứng hover cho các card: khi di chuột vào, card phóng
+to nhẹ bằng transform: scale(1.05), đổi màu nền sang xanh (#007bff),
+chữ đổi sang màu trắng. Thêm transition 0.3s cho mượt mà. Card
+Pro thêm badge 'Phổ biến nhất' và viền nổi bật."
+
+KẾT QUẢ PROMPT 2:
+AI thêm transition: transform 0.3s, box-shadow 0.3s, background 0.3s
+vào .card. Khi hover, transform: scale(1.05) hoạt động mượt mà,
+màu nền chuyển sang xanh, toàn bộ text kể cả giá và danh sách
+tính năng đổi sang trắng. Card Pro có badge màu xanh và border
+3px solid #007bff nổi bật so với 2 card còn lại.
+
+---
+
+PROMPT 3:
+"Tối ưu lại CSS: gộp các thuộc tính màu sắc vào CSS variables,
+sử dụng shorthand cho padding và margin, loại bỏ các thuộc tính
+mặc định không cần thiết như display: block trên thẻ div."
+
+KẾT QUẢ PROMPT 3:
+AI refactor lại toàn bộ CSS, định nghĩa --color-accent, --radius,
+--spacing trong :root. Các giá trị cứng như #007bff, 10px, 20px
+được thay bằng var(). Mã nguồn giảm từ 120 dòng xuống còn 89 dòng,
+không còn thuộc tính thừa hay trùng lặp.
+
+
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 3: LƯỚI ẢNH TỰ DO (CSS GRID MASONRY-LIKE)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Tạo một Photo Gallery với 9 ảnh sử dụng CSS Grid. Thiết lập
+grid-template-columns: repeat(4, 1fr) và grid-auto-rows: 150px.
+Sử dụng grid-column: span và grid-row: span để tạo các ô ảnh
+to nhỏ đan xen nhau giống Pinterest. Gap giữa các ảnh là 15px."
+
+KẾT QUẢ PROMPT 1:
+AI tạo ra lưới ảnh với 4 cột, mỗi ảnh có class riêng (item1 đến
+item9) với các giá trị span khác nhau. Ảnh item1 chiếm 2 cột 2
+hàng tạo điểm nhấn, item3 và item8 chiếm 1 cột 2 hàng tạo chiều
+cao, item4 và item9 chiếm 2 cột 1 hàng tạo chiều ngang. Kết quả
+trông giống giao diện Pinterest với bố cục đan xen nghệ thuật.
+
+---
+
+PROMPT 2:
+"Thêm hiệu ứng overlay khi hover vào từng ảnh: lớp phủ màu xanh
+bán trong suốt (rgba(0,123,255,0.5)) hiện ra với tên mô tả ảnh
+ở giữa. Ảnh zoom nhẹ bằng transform: scale(1.05) khi hover.
+Dùng position: absolute và transition 0.3s."
+
+KẾT QUẢ PROMPT 2:
+AI thêm div.overlay với position: absolute, inset: 0, opacity: 0
+mặc định. Khi hover vào .gallery-item, overlay chuyển opacity: 1
+mượt mà trong 0.3s, hiển thị tên mô tả căn giữa bằng Flexbox.
+Ảnh bên dưới zoom nhẹ tạo cảm giác tương tác sinh động. Không
+có lỗi z-index hay overflow nào xảy ra.
+
+---
+
+PROMPT 3:
+"Sử dụng ảnh từ picsum.photos với seed khác nhau cho mỗi ảnh
+để đảm bảo mỗi ô hiển thị ảnh khác nhau. Đảm bảo object-fit: cover
+để ảnh không bị méo dù kích thước ô thay đổi."
+
+KẾT QUẢ PROMPT 3:
+AI cập nhật src của 9 thẻ img với seed từ g1 đến g9, mỗi ảnh
+hiển thị nội dung khác nhau từ picsum.photos. object-fit: cover
+đảm bảo ảnh luôn lấp đầy ô mà không bị méo hay có khoảng trắng.
+Kết quả gallery trông chuyên nghiệp và đa dạng.
+
+
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 4: THANH ĐIỀU HƯỚNG PHỨC HỢP (COMPLEX NAV BAR)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Thiết kế Header navigation bar gồm 3 nhóm: Logo bên trái, Menu
+chính ở giữa, nút Đăng nhập/Đăng ký bên phải. Sử dụng Flexbox
+với justify-content: space-between. Header có nền tối #1a1a2e,
+chiều cao 64px, position: sticky để cố định khi cuộn."
+
+KẾT QUẢ PROMPT 1:
+AI tạo header với display: flex, justify-content: space-between,
+align-items: center. Logo dùng thẻ <a> với font-weight: bold,
+menu dùng <nav><ul> với display: flex gap: 5px, nhóm action dùng
+div.actions với display: flex gap: 10px. Header sticky hoạt động
+đúng, không bị đẩy xuống khi cuộn trang.
+
+---
+
+PROMPT 2:
+"Thêm tính năng Dropdown menu cho mục 'Dịch vụ' và 'Sản phẩm'.
+Dropdown hiện ra khi hover bằng CSS thuần (không dùng JavaScript).
+Các mục trong Dropdown dàn theo chiều dọc bằng Flexbox
+flex-direction: column. Dropdown có nền trắng, bo góc, box-shadow."
+
+KẾT QUẢ PROMPT 2:
+AI tạo div.dropdown với display: none mặc định, chuyển sang
+display: flex khi li:hover. Dropdown có position: absolute, top: 100%
+để hiện ngay dưới menu item. Flexbox flex-direction: column sắp xếp
+các mục theo chiều dọc gọn gàng. Box-shadow tạo chiều sâu, bo góc
+8px tạo giao diện hiện đại. Hoạt động mượt mà không cần JavaScript.
+
+---
+
+PROMPT 3:
+"Thêm mũi tên ▾ sau các menu item có dropdown bằng CSS ::after.
+Nút Đăng nhập dùng kiểu outline (border trắng, nền trong suốt),
+nút Đăng ký dùng kiểu filled (nền xanh). Cả hai có hover effect."
+
+KẾT QUẢ PROMPT 3:
+AI thêm .has-dropdown > a::after { content: " ▾" } để hiển thị
+mũi tên chỉ báo có dropdown. Nút Đăng nhập có border: 2px solid #fff
+và background: transparent, hover đổi nền trắng chữ tối. Nút Đăng
+ký có background: #007bff, hover giảm opacity. Giao diện trông
+chuyên nghiệp như các website thương mại thực tế.
+
+
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 5: TRANG CHI TIẾT SẢN PHẨM (PRODUCT PAGE LAYOUT)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Xây dựng layout trang chi tiết sản phẩm thương mại điện tử.
+Sử dụng CSS Grid chia 2 cột: ảnh sản phẩm bên trái chiếm 60%,
+thông tin mua hàng bên phải chiếm 40%. Phần ảnh có ảnh chính
+lớn và hàng thumbnail bên dưới."
+
+KẾT QUẢ PROMPT 1:
+AI tạo div.product-page với grid-template-columns: 60% 40%. Phần
+ảnh dùng Flexbox flex-direction: column chứa ảnh chính (aspect-ratio
+4/3, object-fit: cover) và hàng thumbnail 4 ảnh nhỏ bên dưới.
+Thumbnail có hover effect đổi border màu xanh. Layout cân đối,
+ảnh không bị méo trên mọi kích thước màn hình.
+
+---
+
+PROMPT 2:
+"Trong phần thông tin sản phẩm bên phải, sử dụng Flexbox để dàn
+hàng các lựa chọn: Size (S, M, L, XL, XXL) hiển thị ngang hàng
+với flex-wrap, Màu sắc dùng các ô tròn (border-radius: 50%),
+bộ nút Tăng/Giảm số lượng căn giữa theo chiều dọc."
+
+KẾT QUẢ PROMPT 2:
+AI tạo .size-list với display: flex, flex-wrap: wrap, gap: 10px.
+Mỗi size-btn có border 2px, hover và active đổi nền xanh. Color
+dots dùng div với border-radius: 50%, width/height: 32px, hover
+scale(1.15) tạo hiệu ứng phóng to. Bộ tăng/giảm số lượng dùng
+Flexbox align-items: center với 2 nút và 1 input type number.
+
+---
+
+PROMPT 3:
+"Thêm nút 'Mua ngay' và 'Thêm vào giỏ' nằm cạnh nhau, mỗi nút
+chiếm 50% chiều rộng (flex: 1). Nút Mua ngay dùng nền xanh filled,
+nút Thêm vào giỏ dùng kiểu outline. Thêm thông tin giá với giá
+gốc bị gạch ngang và giá khuyến mãi nổi bật."
+
+KẾT QUẢ PROMPT 3:
+AI tạo div.buy-actions với display: flex, gap: 10px. Cả 2 nút có
+flex: 1 nên tự động chia đều 50/50. Giá khuyến mãi 499.000₫ hiển
+thị font-size: 2rem màu xanh nổi bật, giá gốc 799.000₫ có
+text-decoration: line-through màu xám. Giao diện trông giống
+trang Shopee/Lazada thực tế.
+
+
+================================================================
+
+----------------------------------------------------------------
+BÀI TẬP 6: DASHBOARD QUẢN TRỊ (ADMIN PANEL UI)
+----------------------------------------------------------------
+
+PROMPT 1:
+"Thiết kế Admin Dashboard với Sidebar cố định bên trái rộng 240px
+và vùng nội dung cuộn bên phải. Sidebar dùng position: fixed,
+height: 100vh để không bị mất khi cuộn. Sidebar có nền tối
+#1a1a2e, menu dùng Flexbox flex-direction: column."
+
+KẾT QUẢ PROMPT 1:
+AI tạo sidebar với position: fixed, top: 0, left: 0, height: 100vh,
+width: 240px. Vùng nội dung chính có margin-left: 240px để không
+bị sidebar che khuất. Khi cuộn trang, sidebar đứng yên hoàn toàn
+trong khi nội dung bên phải cuộn bình thường. Menu items dùng
+Flexbox với gap: 5px, hover effect đổi nền xanh.
+
+---
+
+PROMPT 2:
+"Trong vùng nội dung bên phải, tạo 4 thẻ thống kê (Stats Cards)
+ở trên cùng bằng CSS Grid repeat(4, 1fr). Mỗi card hiển thị:
+icon, số liệu lớn, nhãn mô tả và chỉ số thay đổi (tăng màu xanh
+lá, giảm màu đỏ). Cards có nền trắng, bo góc, box-shadow nhẹ."
+
+KẾT QUẢ PROMPT 2:
+AI tạo .stats-grid với display: grid, grid-template-columns: repeat(4, 1fr),
+gap: 20px. Mỗi stat-card dùng Flexbox flex-direction: column, gap: 8px.
+Icon font-size: 2rem, value font-size: 1.8rem font-weight: bold.
+Class .change.up có color: #28a745, .change.down có color: #dc3545.
+4 cards hiển thị: Người dùng (+8.2%), Đơn hàng (+5.1%), Doanh thu
+(-2.3%), Sản phẩm (+12 mới).
+
+---
+
+PROMPT 3:
+"Bên dưới Stats Cards, tạo Data Table chiếm toàn bộ chiều ngang
+hiển thị danh sách đơn hàng gần đây với các cột: ID, Khách hàng,
+Sản phẩm, Ngày đặt, Tổng tiền, Trạng thái. Trạng thái dùng badge
+màu sắc: xanh lá (Hoàn thành), vàng (Đang xử lý), đỏ (Đã hủy)."
+
+KẾT QUẢ PROMPT 3:
+AI tạo table với width: 100%, border-collapse: collapse. Header
+row có background xám nhạt, mỗi cell có padding: 12px 16px,
+border-bottom: 1px solid #eee. Hover row đổi nền xanh nhạt rất
+nhẹ. Badge dùng span với border-radius: 20px, padding: 4px 10px,
+màu nền và chữ khác nhau theo trạng thái. Thêm nút "Xuất Excel"
+góc trên phải bảng. Kết quả trông như dashboard thực tế.
+
+---
+
+PROMPT 4 (Tối ưu):
+"Tối ưu toàn bộ mã CSS của Dashboard: sử dụng CSS variables cho
+màu sắc và kích thước, gộp các selector có thuộc tính giống nhau,
+đảm bảo không có thuộc tính float hay inline-block thừa. Topbar
+cũng cần sticky để luôn hiển thị khi cuộn nội dung."
+
+KẾT QUẢ PROMPT 4:
+AI refactor CSS, định nghĩa --sidebar-w, --color-primary, --color-accent,
+--spacing, --radius trong :root. Topbar được thêm position: sticky,
+top: 0, z-index: 50 để cố định khi cuộn. Không còn float hay
+thuộc tính thừa. Mã nguồn sạch, dễ bảo trì và mở rộng sau này.
+
+
+================================================================

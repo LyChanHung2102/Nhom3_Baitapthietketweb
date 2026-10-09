@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant - Agents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../Css/agent.css">
+    <style>
+        /* ===== CHECKED SELECTORS FOR ALL 29 AGENTS ===== */
+        /* Each #agX:checked shows .display-agX and highlights label */
+
+        #ag1:checked ~ .agent-list-panel label[for="ag1"],
+        #ag2:checked ~ .agent-list-panel label[for="ag2"],
+        #ag3:checked ~ .agent-list-panel label[for="ag3"],
+        #ag4:checked ~ .agent-list-panel label[for="ag4"],
+        #ag5:checked ~ .agent-list-panel label[for="ag5"],
+        #ag6:checked ~ .agent-list-panel label[for="ag6"],
+        #ag7:checked ~ .agent-list-panel label[for="ag7"],
+        #ag8:checked ~ .agent-list-panel label[for="ag8"],
+        #ag9:checked ~ .agent-list-panel label[for="ag9"],
+        #ag10:checked ~ .agent-list-panel label[for="ag10"],
+        #ag11:checked ~ .agent-list-panel label[for="ag11"],
+        #ag12:checked ~ .agent-list-panel label[for="ag12"],
+        #ag13:checked ~ .agent-list-panel label[for="ag13"],
+        #ag14:checked ~ .agent-list-panel label[for="ag14"],
+        #ag15:checked ~ .agent-list-panel label[for="ag15"],
+        #ag16:checked ~ .agent-list-panel label[for="ag16"],
+        #ag17:checked ~ .agent-list-panel label[for="ag17"],
+        #ag18:checked ~ .agent-list-panel label[for="ag18"],
+        #ag19:checked ~ .agent-list-panel label[for="ag19"],
+        #ag20:checked ~ .agent-list-panel label[for="ag20"],
+        #ag21:checked ~ .agent-list-panel label[for="ag21"],
+        #ag22:checked ~ .agent-list-panel label[for="ag22"],
+        #ag23:checked ~ .agent-list-panel label[for="ag23"],
+        #ag24:checked ~ .agent-list-panel label[for="ag24"],
+        #ag25:checked ~ .agent-list-panel label[for="ag25"],
+        #ag26:checked ~ .agent-list-panel label[for="ag26"],
+        #ag27:checked ~ .agent-list-panel label[for="ag27"],
+        #ag28:checked ~ .agent-list-panel label[for="ag28"],
+        #ag29:checked ~ .agent-list-panel label[for="ag29"] {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        /* Duelist active */
+        #ag1:checked ~ .agent-list-panel label[for="ag1"],
+        #ag2:checked ~ .agent-list-panel label[for="ag2"],
+        #ag3:checked ~ .agent-list-panel label[for="ag3"],
+        #ag4:checked ~ .agent-list-panel label[for="ag4"],
+        #ag5:checked ~ .agent-list-panel label[for="ag5"],
+        #ag6:checked ~ .agent-list-panel label[for="ag6"],
+        #ag7:checked ~ .agent-list-panel label[for="ag7"],
+        #ag8:checked ~ .agent-list-panel label[for="ag8"] {
+            border-color: #ff4655;
+            box-shadow: 0 0 12px rgba(255,70,85,0.4);
+        }
+        /* Initiator active */
+        #ag9:checked ~ .agent-list-panel label[for="ag9"],
+        #ag10:checked ~ .agent-list-panel label[for="ag10"],
+        #ag11:checked ~ .agent-list-panel label[for="ag11"],
+        #ag12:checked ~ .agent-list-panel label[for="ag12"],
+        #ag13:checked ~ .agent-list-panel label[for="ag13"],
+        #ag14:checked ~ .agent-list-panel label[for="ag14"],
+        #ag15:checked ~ .agent-list-panel label[for="ag15"],
+        #ag16:checked ~ .agent-list-panel label[for="ag16"] {
+            border-color: #ffc832;
+            box-shadow: 0 0 12px rgba(255,200,50,0.4);
+        }
+        /* Controller active */
+        #ag17:checked ~ .agent-list-panel label[for="ag17"],
+        #ag18:checked ~ .agent-list-panel label[for="ag18"],
+        #ag19:checked ~ .agent-list-panel label[for="ag19"],
+        #ag20:checked ~ .agent-list-panel label[for="ag20"],
+        #ag21:checked ~ .agent-list-panel label[for="ag21"],
+        #ag22:checked ~ .agent-list-panel label[for="ag22"],
+        #ag23:checked ~ .agent-list-panel label[for="ag23"] {
+            border-color: #a050ff;
+            box-shadow: 0 0 12px rgba(160,80,255,0.4);
+        }
+        /* Sentinel active */
+        #ag24:checked ~ .agent-list-panel label[for="ag24"],
+        #ag25:checked ~ .agent-list-panel label[for="ag25"],
+        #ag26:checked ~ .agent-list-panel label[for="ag26"],
+        #ag27:checked ~ .agent-list-panel label[for="ag27"],
+        #ag28:checked ~ .agent-list-panel label[for="ag28"],
+        #ag29:checked ~ .agent-list-panel label[for="ag29"] {
+            border-color: #32b4ff;
+            box-shadow: 0 0 12px rgba(50,180,255,0.4);
+        }
+
+        /* Show agent display panels */
+        #ag1:checked  ~ .agent-displays .display-ag1,
+        #ag2:checked  ~ .agent-displays .display-ag2,
+        #ag3:checked  ~ .agent-displays .display-ag3,
+        #ag4:checked  ~ .agent-displays .display-ag4,
+        #ag5:checked  ~ .agent-displays .display-ag5,
+        #ag6:checked  ~ .agent-displays .display-ag6,
+        #ag7:checked  ~ .agent-displays .display-ag7,
+        #ag8:checked  ~ .agent-displays .display-ag8,
+        #ag9:checked  ~ .agent-displays .display-ag9,
+        #ag10:checked ~ .agent-displays .display-ag10,
+        #ag11:checked ~ .agent-displays .display-ag11,
+        #ag12:checked ~ .agent-displays .display-ag12,
+        #ag13:checked ~ .agent-displays .display-ag13,
+        #ag14:checked ~ .agent-displays .display-ag14,
+        #ag15:checked ~ .agent-displays .display-ag15,
+        #ag16:checked ~ .agent-displays .display-ag16,
+        #ag17:checked ~ .agent-displays .display-ag17,
+        #ag18:checked ~ .agent-displays .display-ag18,
+        #ag19:checked ~ .agent-displays .display-ag19,
+        #ag20:checked ~ .agent-displays .display-ag20,
+        #ag21:checked ~ .agent-displays .display-ag21,
+        #ag22:checked ~ .agent-displays .display-ag22,
+        #ag23:checked ~ .agent-displays .display-ag23,
+        #ag24:checked ~ .agent-displays .display-ag24,
+        #ag25:checked ~ .agent-displays .display-ag25,
+        #ag26:checked ~ .agent-displays .display-ag26,
+        #ag27:checked ~ .agent-displays .display-ag27,
+        #ag28:checked ~ .agent-displays .display-ag28,
+        #ag29:checked ~ .agent-displays .display-ag29 {
+            display: grid;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">VALORANT</div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="Agent.html">Agents</a></li>
+        <li><a href="Weapons.html">Weapons</a></li>
+    </ul>
+</nav>
+
+<!-- Agent Selector + HUD -->
+<div class="agent-page">
+<div class="agent-layout">
+
+    <!-- Role Labels -->
+    <div class="role-tabs">
+        <span class="role-tab duelist"><img src="/Image/duelist_role_logo.png" alt="Duelist"> Duelist</span>
+        <span class="role-tab initiator"><img src="/Image/initiator_role_logo.png" alt="Initiator"> Initiator</span>
+        <span class="role-tab controller"><img src="/Image/controller_role_logo.png" alt="Controller"> Controller</span>
+        <span class="role-tab sentinel"><img src="/Image/sentinel_role_logo.png" alt="Sentinel"> Sentinel</span>
+    </div>
+
+    <!-- Radio inputs as direct children of agent-layout for CSS :checked ~ sibling selector -->
+    <input type="radio" name="agent" id="ag1" checked>
+    <input type="radio" name="agent" id="ag2">
+    <input type="radio" name="agent" id="ag3">
+    <input type="radio" name="agent" id="ag4">
+    <input type="radio" name="agent" id="ag5">
+    <input type="radio" name="agent" id="ag6">
+    <input type="radio" name="agent" id="ag7">
+    <input type="radio" name="agent" id="ag8">
+    <input type="radio" name="agent" id="ag9">
+    <input type="radio" name="agent" id="ag10">
+    <input type="radio" name="agent" id="ag11">
+    <input type="radio" name="agent" id="ag12">
+    <input type="radio" name="agent" id="ag13">
+    <input type="radio" name="agent" id="ag14">
+    <input type="radio" name="agent" id="ag15">
+    <input type="radio" name="agent" id="ag16">
+    <input type="radio" name="agent" id="ag17">
+    <input type="radio" name="agent" id="ag18">
+    <input type="radio" name="agent" id="ag19">
+    <input type="radio" name="agent" id="ag20">
+    <input type="radio" name="agent" id="ag21">
+    <input type="radio" name="agent" id="ag22">
+    <input type="radio" name="agent" id="ag23">
+    <input type="radio" name="agent" id="ag24">
+    <input type="radio" name="agent" id="ag25">
+    <input type="radio" name="agent" id="ag26">
+    <input type="radio" name="agent" id="ag27">
+    <input type="radio" name="agent" id="ag28">
+    <input type="radio" name="agent" id="ag29">
+
+        <!-- Agent List Panel -->
+        <div class="agent-list-panel">
+            <label for="ag1"  class="agent-btn d">Jett</label>
+            <label for="ag2"  class="agent-btn d">Raze</label>
+            <label for="ag3"  class="agent-btn d">Phoenix</label>
+            <label for="ag4"  class="agent-btn d">Reyna</label>
+            <label for="ag5"  class="agent-btn d">Yoru</label>
+            <label for="ag6"  class="agent-btn d">Neon</label>
+            <label for="ag7"  class="agent-btn d">Iso</label>
+            <label for="ag8"  class="agent-btn d">Waylay</label>
+            <label for="ag9"  class="agent-btn i">Sova</label>
+            <label for="ag10" class="agent-btn i">Breach</label>
+            <label for="ag11" class="agent-btn i">Skye</label>
+            <label for="ag12" class="agent-btn i">KAY/O</label>
+            <label for="ag13" class="agent-btn i">Fade</label>
+            <label for="ag14" class="agent-btn i">Gekko</label>
+            <label for="ag15" class="agent-btn i">Tejo</label>
+            <label for="ag16" class="agent-btn i">Miks</label>
+            <label for="ag17" class="agent-btn c">Brimstone</label>
+            <label for="ag18" class="agent-btn c">Omen</label>
+            <label for="ag19" class="agent-btn c">Viper</label>
+            <label for="ag20" class="agent-btn c">Astra</label>
+            <label for="ag21" class="agent-btn c">Harbor</label>
+            <label for="ag22" class="agent-btn c">Clove</label>
+            <label for="ag23" class="agent-btn c">Veto</label>
+            <label for="ag24" class="agent-btn s">Sage</label>
+            <label for="ag25" class="agent-btn s">Cypher</label>
+            <label for="ag26" class="agent-btn s">Killjoy</label>
+            <label for="ag27" class="agent-btn s">Chamber</label>
+            <label for="ag28" class="agent-btn s">Deadlock</label>
+            <label for="ag29" class="agent-btn s">Vyse</label>
+        </div>
+
+        <!-- ===== ALL AGENT DISPLAY PANELS ===== -->
+        <div class="agent-displays">
+
+<!-- ===== AG1: JETT ===== -->
+<div class="agent-display display-ag1 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Updraft</div><div class="ability-desc">Instantly propel Jett high into the air.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Tailwind</div><div class="ability-desc">Dash a short distance in the direction you're moving.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Cloudburst</div><div class="ability-desc">Throw a projectile that expands into a brief cloud of fog on impact.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Blade Storm</div><div class="ability-desc">Equip a set of highly accurate knives. Fire to throw a single knife. Alternate fire to throw all remaining knives.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" alt="Jett">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Jett</div>
+        <div class="agent-origin"><span class="flag-emoji">🇰🇷</span> South Korea</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Aggressive entry fragger. Jett's unmatched agility lets her take risks no other agent can. She dashes in, picks a kill, and escapes before enemies can react.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Unrivaled mobility and escape potential</li>
+            <li>Blade Storm provides free ultimate economy</li>
+            <li>Cloudburst enables self-sufficient smokes</li>
+            <li>Updraft allows unique off-angle positions</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG2: RAZE ===== -->
+<div class="agent-display display-ag2 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Boom Bot</div><div class="ability-desc">Deploy a bot that travels in a straight line, bouncing off walls, exploding on enemy contact.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Blast Pack</div><div class="ability-desc">Throw a Blast Pack that sticks to surfaces. Reactivate to detonate, launching Raze and nearby allies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Paint Shells</div><div class="ability-desc">Throw a cluster grenade that deals damage and spawns sub-munitions on detonation.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Showstopper</div><div class="ability-desc">Equip a rocket launcher. Fire to shoot a rocket that deals massive area damage.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/f94c3b30-42be-e959-889c-5aa313dba261/displayicon.png" alt="Raze">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Raze</div>
+        <div class="agent-origin"><span class="flag-emoji">🇧🇷</span> Brazil</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Explosive damage dealer. Raze brings chaos to every fight with her arsenal of explosives, clearing rooms and punishing clustered enemies.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Highest burst damage potential in the game</li>
+            <li>Blast Pack enables creative mobility</li>
+            <li>Boom Bot forces enemies to reposition</li>
+            <li>Showstopper is a game-changing ultimate</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG3: PHOENIX ===== -->
+<div class="agent-display display-ag3 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Blaze</div><div class="ability-desc">Cast a flame wall that blocks vision and damages enemies passing through. Heals Phoenix.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Hot Hands</div><div class="ability-desc">Throw a fireball that explodes after a delay. Damages enemies, heals Phoenix.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Curveball</div><div class="ability-desc">Cast a curving flare that blinds any player who looks at it.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Run It Back</div><div class="ability-desc">Mark your current location. If you die during this ability, you'll respawn at the marked location with full health.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/eb93336a-449b-9c1e-0ac7-dfe9992400c2/displayicon.png" alt="Phoenix">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Phoenix</div>
+        <div class="agent-origin"><span class="flag-emoji">🇬🇧</span> United Kingdom</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Self-sustaining brawler. Phoenix fights on his own terms, healing himself mid-fight and using Run It Back to take aggressive risks with zero consequence.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Self-healing through fire abilities</li>
+            <li>Run It Back enables risk-free aggression</li>
+            <li>Curveball is a powerful one-way flash</li>
+            <li>Blaze provides both vision block and healing</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG4: REYNA ===== -->
+<div class="agent-display display-ag4 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Devour</div><div class="ability-desc">Consume a nearby Soul Orb to rapidly heal to full health.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Dismiss</div><div class="ability-desc">Consume a Soul Orb to become briefly intangible and invulnerable.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Leer</div><div class="ability-desc">Cast an ethereal eye that nearsights all enemies who look at it.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Empress</div><div class="ability-desc">Enter a frenzy, increasing firing speed, equip and reload speed. Kills refresh duration.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png" alt="Reyna">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Reyna</div>
+        <div class="agent-origin"><span class="flag-emoji">🇲🇽</span> Mexico</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Snowball carry. Reyna thrives on kills — each elimination fuels her next, making her a terrifying force when ahead and a liability when behind.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Unmatched snowball potential on kill streaks</li>
+            <li>Dismiss provides instant escape after kills</li>
+            <li>Empress dramatically boosts combat stats</li>
+            <li>Devour enables full health recovery mid-round</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG5: YORU ===== -->
+<div class="agent-display display-ag5 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Blindside</div><div class="ability-desc">Rip an unstable dimensional fragment from reality. Fire to throw, activating on surface impact to blind enemies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Gatecrash</div><div class="ability-desc">Tether to a rift tether and send it forward. Activate to teleport to the tether's location.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Fakeout</div><div class="ability-desc">Equip an echo that mimics footsteps. Fire to send it forward. Alternate fire to send it in the direction you're looking.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Dimensional Drift</div><div class="ability-desc">Equip a mask that can see between dimensions. Fire to drift into Yoru's dimension, becoming invisible to enemies.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/7f94d92c-4234-0a36-9646-3a87eb8b5c89/displayicon.png" alt="Yoru">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Yoru</div>
+        <div class="agent-origin"><span class="flag-emoji">🇯🇵</span> Japan</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Mind-game specialist. Yoru excels at deception, using decoys and teleports to confuse enemies and create openings that no other agent can replicate.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Unmatched deception and mind-game potential</li>
+            <li>Dimensional Drift enables safe scouting</li>
+            <li>Gatecrash creates unpredictable flanks</li>
+            <li>Fakeout forces enemies to waste utility</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG6: NEON ===== -->
+<div class="agent-display display-ag6 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Relay Bolt</div><div class="ability-desc">Throw an energy bolt that bounces once, concussing enemies in the area on each bounce.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">High Gear</div><div class="ability-desc">Channel Neon's power for increased speed. Activate to slide. Recharges on two kills.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Fast Lane</div><div class="ability-desc">Fire two energy lines forward that form walls of static electricity, blocking vision.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Overdrive</div><div class="ability-desc">Unleash Neon's full power with a supercharged lightning beam. Kills refresh duration.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/bb2a4828-46eb-8cd1-e765-15848195d751/displayicon.png" alt="Neon">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Neon</div>
+        <div class="agent-origin"><span class="flag-emoji">🇵🇭</span> Philippines</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Speed-based entry fragger. Neon moves faster than any other agent, using her electric speed to rush sites and overwhelm enemies before they can react.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Fastest movement speed in the game</li>
+            <li>Slide mechanic enables unpredictable dodging</li>
+            <li>Fast Lane provides self-sufficient smokes</li>
+            <li>Overdrive beam is lethal at close range</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG7: ISO ===== -->
+<div class="agent-display display-ag7 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Contingency</div><div class="ability-desc">Assemble a wall of energy that moves forward, blocking bullets.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Double Tap</div><div class="ability-desc">Enter a flow state. Kills generate an energy orb. Shoot the orb to create a shield.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Undercut</div><div class="ability-desc">Throw a molecular bolt that applies a brief fragile debuff to all enemies it passes through.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Kill Contract</div><div class="ability-desc">Teleport the targeted enemy to a 1v1 arena. The winner returns to the round.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/0e38b510-41a8-5780-5e8f-568b2a4f2d6c/displayicon.png" alt="Iso">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Iso</div>
+        <div class="agent-origin"><span class="flag-emoji">🇨🇳</span> China</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Calculated duelist. Iso isolates enemies and fights them on his own terms, using shields and debuffs to guarantee favorable 1v1 engagements.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Kill Contract removes key enemies from round</li>
+            <li>Double Tap shield rewards aggressive play</li>
+            <li>Contingency provides moving bullet cover</li>
+            <li>Undercut applies fragile for team follow-up</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG8: WAYLAY ===== -->
+<div class="agent-display display-ag8 role-duelist">
+    <div class="abilities-panel role-duelist">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Repulse</div><div class="ability-desc">Fire a wave of kinetic energy that pushes enemies back and disrupts their aim.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Phase Shift</div><div class="ability-desc">Briefly phase out of reality, becoming untargetable. Reappear at a nearby location.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Intercept</div><div class="ability-desc">Launch a homing projectile that tracks the nearest enemy and slows on hit.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Rift Strike</div><div class="ability-desc">Open a dimensional rift. Enemies caught inside are displaced and take heavy damage.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-duelist">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png" alt="Waylay">
+    </div>
+    <div class="info-panel role-duelist">
+        <div class="agent-name-display">Waylay</div>
+        <div class="agent-origin"><span class="flag-emoji">🇮🇳</span> India</div>
+        <div class="role-badge">⚔ Duelist</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Dimensional ambusher. Waylay uses phase-shifting and kinetic disruption to catch enemies off-guard, creating chaos in tight corridors and choke points.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Phase Shift provides unique invulnerability window</li>
+            <li>Repulse disrupts enemy positioning</li>
+            <li>Intercept enables long-range harassment</li>
+            <li>Rift Strike punishes grouped enemies</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG9: SOVA ===== -->
+<div class="agent-display display-ag9 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Shock Bolt</div><div class="ability-desc">Fire an explosive bolt that emits a damaging pulse of static energy on impact.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Recon Bolt</div><div class="ability-desc">Fire a bolt that deploys a sonar emitter, revealing enemies in a large radius.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Owl Drone</div><div class="ability-desc">Deploy a pilotable drone that can fire a dart to reveal enemies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Hunter's Fury</div><div class="ability-desc">Fire up to three deadly energy blasts that pierce walls and reveal enemies hit.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/320b2a48-4d9b-a075-30f1-1f93a9b638fa/displayicon.png" alt="Sova">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Sova</div>
+        <div class="agent-origin"><span class="flag-emoji">🇷🇺</span> Russia</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Intel gatherer. Sova's recon tools provide unmatched information, letting his team know exactly where enemies are before committing to a fight.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Best long-range recon in the game</li>
+            <li>Recon Bolt reveals entire site setups</li>
+            <li>Hunter's Fury punishes static enemies</li>
+            <li>Owl Drone provides safe scouting</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG10: BREACH ===== -->
+<div class="agent-display display-ag10 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Flashpoint</div><div class="ability-desc">Fire a blinding charge through a wall that blinds all players on the other side.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Fault Line</div><div class="ability-desc">Send a seismic blast through the ground that concusses all players in its path.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Aftershock</div><div class="ability-desc">Fire a fusion charge through a wall that deals heavy damage in a small area.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Rolling Thunder</div><div class="ability-desc">Send a cascading quake through all terrain in a large cone, concussing and knocking up enemies.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/5f8d3a7f-467b-97f3-062c-13acf203c006/displayicon.png" alt="Breach">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Breach</div>
+        <div class="agent-origin"><span class="flag-emoji">🇸🇪</span> Sweden</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Wall-breaking disruptor. Breach fires his abilities through walls, making him impossible to hide from. His kit is designed to clear corners and disable defenders.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>All abilities penetrate walls and terrain</li>
+            <li>Rolling Thunder is a massive team fight winner</li>
+            <li>Flashpoint blinds through walls reliably</li>
+            <li>Fault Line concusses entire choke points</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG11: SKYE ===== -->
+<div class="agent-display display-ag11 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Trailblazer</div><div class="ability-desc">Control a Tasmanian tiger trinket. Fire to leap and concuss enemies in a small area.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Guiding Light</div><div class="ability-desc">Equip a hawk trinket. Fire to send it forward. Activate to transform it into a flash.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Regrowth</div><div class="ability-desc">Channel to heal nearby allies. Cannot heal yourself.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Seekers</div><div class="ability-desc">Send out three seekers that track down the three nearest enemies and nearsight them.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/6f2a04ca-43e0-be17-7f36-b3908627744d/displayicon.png" alt="Skye">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Skye</div>
+        <div class="agent-origin"><span class="flag-emoji">🇦🇺</span> Australia</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Nature-powered support initiator. Skye combines healing with aggressive scouting, using her animal companions to gather intel and set up her team for success.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Only initiator with team healing</li>
+            <li>Seekers provide global nearsight on three enemies</li>
+            <li>Guiding Light is a controllable flash</li>
+            <li>Trailblazer scouts and concusses simultaneously</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG12: KAY/O ===== -->
+<div class="agent-display display-ag12 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">FLASH/drive</div><div class="ability-desc">Throw a flash grenade that blinds enemies. Can be cooked to reduce arm time.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">ZERO/point</div><div class="ability-desc">Throw a suppression blade that sticks to surfaces and suppresses enemies in range, disabling their abilities.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">FRAG/ment</div><div class="ability-desc">Throw an explosive fragment that sticks to the floor and pulses with damaging explosions.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">NULL/cmd</div><div class="ability-desc">Overload with polarized radianite energy, suppressing all enemies in a large radius. If downed, allies can stabilize KAY/O to keep him fighting.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/601dbbe7-43ce-be57-2a40-4abd24953621/displayicon.png" alt="KAYO">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">KAY/O</div>
+        <div class="agent-origin"><span class="flag-emoji">🤖</span> Unknown Origin</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Ability suppressor. KAY/O is a war machine built to neutralize radiants. His suppression tools shut down enemy abilities, leveling the playing field for his team.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>ZERO/point suppresses enemy abilities</li>
+            <li>NULL/cmd suppresses entire site on ultimate</li>
+            <li>Revivable during ultimate if downed</li>
+            <li>FLASH/drive is a reliable cookable flash</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG13: FADE ===== -->
+<div class="agent-display display-ag13 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Seize</div><div class="ability-desc">Throw a canister that creates a zone of nightmare energy, tethering and deafening enemies inside.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Haunt</div><div class="ability-desc">Throw a creature that reveals enemies in its line of sight and marks them with a trail.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Prowler</div><div class="ability-desc">Send a prowler that chases enemies, nearsighting them on contact.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Nightfall</div><div class="ability-desc">Send a wave of nightmare energy that deafens, decays, and marks all enemies hit.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png" alt="Fade">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Fade</div>
+        <div class="agent-origin"><span class="flag-emoji">🇹🇷</span> Turkey</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Fear-based hunter. Fade uses nightmare creatures to track, reveal, and debilitate enemies, making it impossible for them to hide or reposition safely.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Haunt reveals and marks enemies with trails</li>
+            <li>Prowler chases enemies into corners</li>
+            <li>Nightfall debuffs entire enemy team</li>
+            <li>Seize tethers enemies in place</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG14: GEKKO ===== -->
+<div class="agent-display display-ag14 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Wingman</div><div class="ability-desc">Send Wingman forward to concuss enemies. Can also plant or defuse the spike.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Dizzy</div><div class="ability-desc">Launch Dizzy who charges up and fires plasma blasts that blind enemies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Mosh Pit</div><div class="ability-desc">Throw Mosh who replicates across the area and explodes after a delay.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Thrash</div><div class="ability-desc">Control Thrash to lunge and detain any enemies caught in the explosion.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/displayicon.png" alt="Gekko">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Gekko</div>
+        <div class="agent-origin"><span class="flag-emoji">🇺🇸</span> United States</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Creature commander. Gekko directs his crew of alien creatures to clear sites, blind enemies, and even plant the spike — all while recovering his buddies for reuse.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Wingman can plant/defuse spike autonomously</li>
+            <li>Abilities can be retrieved and reused</li>
+            <li>Thrash detains multiple enemies</li>
+            <li>Dizzy provides reliable team flash</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG15: TEJO ===== -->
+<div class="agent-display display-ag15 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Stealth Drone</div><div class="ability-desc">Deploy a stealth drone to scout ahead. Enemies hit by the drone are revealed.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Guided Salvo</div><div class="ability-desc">Fire guided missiles that track marked targets, dealing damage on impact.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Special Delivery</div><div class="ability-desc">Throw a concussive grenade that bounces off walls before detonating.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Armageddon</div><div class="ability-desc">Call in a massive airstrike on a targeted area, dealing devastating damage.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/b444168c-4b85-8525-0b95-9a7c8e5c4f0e/displayicon.png" alt="Tejo">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Tejo</div>
+        <div class="agent-origin"><span class="flag-emoji">🇨🇴</span> Colombia</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Military tactician. Tejo brings military-grade firepower to the Protocol, using guided missiles and airstrikes to clear sites from a safe distance.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Guided Salvo deals damage from long range</li>
+            <li>Stealth Drone provides safe recon</li>
+            <li>Armageddon clears entire site areas</li>
+            <li>Special Delivery bounces around corners</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG16: MIKS ===== -->
+<div class="agent-display display-ag16 role-initiator">
+    <div class="abilities-panel role-initiator">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Spark</div><div class="ability-desc">Release a burst of radiant energy that briefly illuminates and reveals enemies in a cone.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Relay</div><div class="ability-desc">Place a relay node. Abilities cast near the node are amplified and have extended range.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Surge</div><div class="ability-desc">Send a radiant pulse along the ground that concusses enemies it passes through.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Cascade</div><div class="ability-desc">Unleash a chain reaction of radiant energy that bounces between enemies, revealing and slowing all hit.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-initiator">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/95b78ed7-4637-86d9-7e41-71ba8c293152/displayicon.png" alt="Miks">
+    </div>
+    <div class="info-panel role-initiator">
+        <div class="agent-name-display">Miks</div>
+        <div class="agent-origin"><span class="flag-emoji">🇸🇰</span> Slovakia</div>
+        <div class="role-badge">🔍 Initiator</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Radiant amplifier. Miks channels raw radiant energy to reveal and disrupt enemies, while his Relay node empowers his team's utility to cover greater distances.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Relay node amplifies team utility range</li>
+            <li>Cascade chains reveals across multiple enemies</li>
+            <li>Surge provides ground-level concuss</li>
+            <li>Spark offers quick directional intel</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG17: BRIMSTONE ===== -->
+<div class="agent-display display-ag17 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Incendiary</div><div class="ability-desc">Launch an incendiary grenade that deploys a damaging field of fire.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Sky Smoke</div><div class="ability-desc">Use your tactical map to call in orbital smoke canisters that obscure vision.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Stim Beacon</div><div class="ability-desc">Target a nearby location to call in a stim beacon, giving all players in range RapidFire.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Orbital Strike</div><div class="ability-desc">Use your map to target a location, launching a devastating orbital strike that pulses with lethal energy.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/9f0d8ba9-4140-b941-57d3-a7ad57c6b417/displayicon.png" alt="Brimstone">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Brimstone</div>
+        <div class="agent-origin"><span class="flag-emoji">🇺🇸</span> United States</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Tactical commander. Brimstone controls the battlefield from a distance, deploying smokes and calling in orbital strikes to dictate the flow of every round.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Three instant smokes deployable from anywhere</li>
+            <li>Orbital Strike is a reliable post-plant tool</li>
+            <li>Stim Beacon boosts team fire rate</li>
+            <li>Incendiary denies areas effectively</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG18: OMEN ===== -->
+<div class="agent-display display-ag18 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Paranoia</div><div class="ability-desc">Send a shadow projectile forward that briefly nearsights all players it passes through.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Dark Cover</div><div class="ability-desc">Cast a shadow orb to a targeted location, creating a long-lasting smoke.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Shrouded Step</div><div class="ability-desc">After a brief delay, teleport to a targeted location.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">From the Shadows</div><div class="ability-desc">Teleport to any location on the map. Can be cancelled mid-teleport.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" alt="Omen">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Omen</div>
+        <div class="agent-origin"><span class="flag-emoji">❓</span> Unknown</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Shadow phantom. Omen haunts the battlefield, using teleportation and darkness to disorient enemies and appear where least expected.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>From the Shadows enables global map presence</li>
+            <li>Dark Cover smokes can be placed anywhere</li>
+            <li>Paranoia nearsights through walls</li>
+            <li>Shrouded Step creates unpredictable flanks</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG19: VIPER ===== -->
+<div class="agent-display display-ag19 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Poison Cloud</div><div class="ability-desc">Throw a gas emitter that creates a toxic cloud. Can be reactivated to redeploy.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Toxic Screen</div><div class="ability-desc">Deploy a long line of gas emitters that create a tall wall of toxic gas.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Snake Bite</div><div class="ability-desc">Fire a projectile that shatters into a pool of acid, slowing and applying vulnerable.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Viper's Pit</div><div class="ability-desc">Emit a massive cloud of toxic gas around Viper. Enemies inside are decayed and nearsighted.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/707eab51-4836-f488-046a-cda6bf494859/displayicon.png" alt="Viper">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Viper</div>
+        <div class="agent-origin"><span class="flag-emoji">🇺🇸</span> United States</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Toxic zone controller. Viper uses chemical warfare to create areas of denial, forcing enemies to either take damage or avoid entire sections of the map.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Viper's Pit is the strongest site-hold ultimate</li>
+            <li>Toxic Screen splits entire maps in half</li>
+            <li>Poison Cloud is a redeployable smoke</li>
+            <li>Snake Bite applies vulnerable for team damage</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG20: ASTRA ===== -->
+<div class="agent-display display-ag20 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Nova Pulse</div><div class="ability-desc">Activate a star to detonate a nova pulse, concussing all players in the area.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Nebula / Dissipate</div><div class="ability-desc">Activate a star to transform it into a smoke. Dissipate to recall it briefly as a fake smoke.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Gravity Well</div><div class="ability-desc">Activate a star to create a gravity well, pulling players in before exploding.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Astral Form / Cosmic Divide</div><div class="ability-desc">Enter astral form to place stars. Activate to create an infinite cosmic wall that blocks bullets and audio.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/41fb69c1-4189-7b37-f117-bcaf1e96f1bf/displayicon.png" alt="Astra">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Astra</div>
+        <div class="agent-origin"><span class="flag-emoji">🇬🇭</span> Ghana</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Cosmic strategist. Astra controls the entire map from the astral plane, placing stars anywhere to create smokes, concusses, and gravity wells with global reach.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Global utility placement from astral form</li>
+            <li>Cosmic Divide blocks bullets and sound</li>
+            <li>Five stars provide maximum flexibility</li>
+            <li>Gravity Well pulls enemies out of cover</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG21: HARBOR ===== -->
+<div class="agent-display display-ag21 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Cove</div><div class="ability-desc">Throw a sphere of shielding water that blocks bullets. Can be destroyed.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">High Tide</div><div class="ability-desc">Send a wave of water forward that creates a wall of water, blocking vision.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Cascade</div><div class="ability-desc">Throw a wave that travels forward, slowing enemies it passes through.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Reckoning</div><div class="ability-desc">Create a geyser pool that concusses enemies caught in its eruptions.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/95b78ed7-4637-86d9-7e41-71ba8c293152/displayicon.png" alt="Harbor">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Harbor</div>
+        <div class="agent-origin"><span class="flag-emoji">🇮🇳</span> India</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Water-based area controller. Harbor uses ancient water magic to create walls and shields, controlling space and protecting his team during site executes.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Cove provides bullet-blocking shield on spike</li>
+            <li>High Tide creates long curved water walls</li>
+            <li>Reckoning concusses multiple enemies</li>
+            <li>Cascade slows enemies for team follow-up</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG22: CLOVE ===== -->
+<div class="agent-display display-ag22 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Meddle</div><div class="ability-desc">Throw a fragment of entropy that briefly decays enemies in the area.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Pick-Me-Up</div><div class="ability-desc">Absorb the life force of a fallen enemy to gain a burst of speed and temporary health.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Ruse</div><div class="ability-desc">Deploy smoke clouds at targeted locations. Can be activated after death.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Not Dead Yet</div><div class="ability-desc">After dying, get a second chance to secure a kill and be revived with partial health.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/1dbf2edd-4729-0984-3115-daa5eed44993/displayicon.png" alt="Clove">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Clove</div>
+        <div class="agent-origin"><span class="flag-emoji">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span> Scotland</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Undying controller. Clove defies death itself, using their unique ability to act after dying and revive on kills, making them a persistent threat every round.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Not Dead Yet enables post-death impact</li>
+            <li>Ruse smokes can be activated after death</li>
+            <li>Pick-Me-Up rewards aggressive play</li>
+            <li>Only controller with self-sustain mechanics</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG23: VETO ===== -->
+<div class="agent-display display-ag23 role-controller">
+    <div class="abilities-panel role-controller">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Nullify</div><div class="ability-desc">Project a field that cancels all enemy utility within its radius for a short duration.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Static Field</div><div class="ability-desc">Create a zone of static energy that slows and damages enemies who enter it.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Blackout</div><div class="ability-desc">Deploy a smoke canister that also emits an EMP pulse, disabling nearby electronics.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Override</div><div class="ability-desc">Seize control of a large area, converting all enemy utility within to work for your team.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-controller">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" alt="Veto">
+    </div>
+    <div class="info-panel role-controller">
+        <div class="agent-name-display">Veto</div>
+        <div class="agent-origin"><span class="flag-emoji">🇩🇪</span> Germany</div>
+        <div class="role-badge">🌀 Controller</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Anti-utility specialist. Veto counters enemy setups by nullifying and converting their utility, turning the enemy's own tools against them.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Override converts enemy utility to friendly</li>
+            <li>Nullify cancels enemy ability setups</li>
+            <li>Blackout combines smoke and EMP</li>
+            <li>Static Field punishes slow-moving enemies</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG24: SAGE ===== -->
+<div class="agent-display display-ag24 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Slow Orb</div><div class="ability-desc">Cast a slowing orb that creates a field of slow-moving crystals, slowing all players.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Healing Orb</div><div class="ability-desc">Heal an ally or yourself over time with a healing orb.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Barrier Orb</div><div class="ability-desc">Conjure a large, solid wall of ice that blocks movement and bullets.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Resurrection</div><div class="ability-desc">Target a friendly corpse. After a short delay, revive them with full health.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/569fdd95-4d10-43ab-ca70-79becc718b46/displayicon.png" alt="Sage">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Sage</div>
+        <div class="agent-origin"><span class="flag-emoji">🇨🇳</span> China</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Team healer and anchor. Sage keeps her team alive through healing and resurrection, while her ice walls create impenetrable barriers that reshape the battlefield.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Resurrection brings back key teammates</li>
+            <li>Barrier Orb blocks entire pathways</li>
+            <li>Healing Orb provides consistent sustain</li>
+            <li>Slow Orb denies rushes effectively</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG25: CYPHER ===== -->
+<div class="agent-display display-ag25 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Cyber Cage</div><div class="ability-desc">Toss a remote activation trap. Activate to create a cage of cyber mesh that slows enemies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Spycam</div><div class="ability-desc">Place a remote camera. Activate to view from the camera and fire a tracking dart.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Trapwire</div><div class="ability-desc">Place a hidden tripwire between two walls. Enemies who cross it are tethered and revealed.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Neural Theft</div><div class="ability-desc">Extract information from a dead enemy, revealing the location of all living enemies.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png" alt="Cypher">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Cypher</div>
+        <div class="agent-origin"><span class="flag-emoji">🇲🇦</span> Morocco</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Information broker. Cypher is a one-man surveillance network, using cameras and tripwires to monitor every flank and sell intel to the highest bidder.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Neural Theft reveals all living enemies</li>
+            <li>Spycam provides persistent map vision</li>
+            <li>Trapwire catches flankers reliably</li>
+            <li>Best flank-watching sentinel in the game</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG26: KILLJOY ===== -->
+<div class="agent-display display-ag26 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Alarmbot</div><div class="ability-desc">Deploy a bot that hunts enemies in range. Enemies hit are vulnerable to double damage.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Turret</div><div class="ability-desc">Deploy a turret that fires at enemies in a 180-degree cone.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Nanoswarm</div><div class="ability-desc">Throw a grenade that goes covert on landing. Activate to deploy a damaging swarm of nanobots.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Lockdown</div><div class="ability-desc">Deploy a device that detains all enemies caught in its radius after a windup.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/1e58de9c-4950-5125-93e9-a0aee9f98746/displayicon.png" alt="Killjoy">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Killjoy</div>
+        <div class="agent-origin"><span class="flag-emoji">🇩🇪</span> Germany</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Tech genius defender. Killjoy sets up an automated defense network that can hold a site alone, freeing her team to play aggressively elsewhere.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Lockdown detains entire site retakes</li>
+            <li>Nanoswarm is a deadly hidden post-plant tool</li>
+            <li>Turret provides constant area denial</li>
+            <li>Alarmbot applies vulnerable for burst damage</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG27: CHAMBER ===== -->
+<div class="agent-display display-ag27 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Headhunter</div><div class="ability-desc">Activate to equip a heavy pistol. Alt fire to aim down sights.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Rendezvous</div><div class="ability-desc">Place two teleport anchors. While on the ground near an anchor, reactivate to teleport to the other.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Trademark</div><div class="ability-desc">Place a trap that scans for enemies. When a visible enemy comes in range, it creates a slowing field.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Tour De Force</div><div class="ability-desc">Summon a powerful custom sniper rifle. Kills create a slowing field at the target's location.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/22697054-9035-4d6c-a675-5f0e5a20d2b0/displayicon.png" alt="Chamber">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Chamber</div>
+        <div class="agent-origin"><span class="flag-emoji">🇫🇷</span> France</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Arms dealer sentinel. Chamber holds angles with precision weaponry and teleports to safety when threatened, combining aggressive gunplay with sentinel utility.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Tour De Force is a free operator-class rifle</li>
+            <li>Rendezvous enables safe repositioning</li>
+            <li>Headhunter provides free sidearm economy</li>
+            <li>Trademark slows enemies approaching angles</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG28: DEADLOCK ===== -->
+<div class="agent-display display-ag28 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Sonic Sensor</div><div class="ability-desc">Deploy a sensor that monitors an area for enemies making sound. Triggers a concussive blast.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Barrier Mesh</div><div class="ability-desc">Throw a disc that creates a barrier of nanowire mesh, blocking movement.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">GravNet</div><div class="ability-desc">Throw a grenade that detonates on contact, forcing enemies to crouch and move slowly.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Annihilation</div><div class="ability-desc">Fire a pulse of nanowire that captures the first enemy it contacts, cocooning them.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/cc8b64c8-4b25-4ff9-6e7f-37b4da43d235/displayicon.png" alt="Deadlock">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Deadlock</div>
+        <div class="agent-origin"><span class="flag-emoji">🇳🇴</span> Norway</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Nanowire trapper. Deadlock uses cutting-edge nanowire technology to lock down areas, capturing enemies and making entire zones impassable.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Annihilation captures enemies out of the round</li>
+            <li>GravNet forces enemies into vulnerable crouch</li>
+            <li>Barrier Mesh blocks entire pathways</li>
+            <li>Sonic Sensor punishes noisy pushes</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ===== AG29: VYSE ===== -->
+<div class="agent-display display-ag29 role-sentinel">
+    <div class="abilities-panel role-sentinel">
+        <div class="abilities-title">// Abilities</div>
+        <div class="ability-item">
+            <span class="ability-key">Q</span>
+            <div><div class="ability-name">Shear</div><div class="ability-desc">Place a hidden trap that creates a wall of metal when triggered by an enemy.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">E</span>
+            <div><div class="ability-name">Arc Rose</div><div class="ability-desc">Place a hidden device that blinds enemies who look at it when triggered.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">C</span>
+            <div><div class="ability-name">Razorvine</div><div class="ability-desc">Throw a canister that creates a large patch of razorvine, slowing and damaging enemies.</div></div>
+        </div>
+        <div class="ability-item">
+            <span class="ability-key">X</span>
+            <div><div class="ability-name">Steel Garden</div><div class="ability-desc">Unleash metal vines across a wide area, disarming all enemies caught within.</div></div>
+        </div>
+    </div>
+    <div class="portrait-panel role-sentinel">
+        <div class="portrait-aura"></div>
+        <img class="agent-portrait-img" src="https://media.valorant-api.com/agents/efba5359-4016-a1e5-7626-b1ae76895940/displayicon.png" alt="Vyse">
+    </div>
+    <div class="info-panel role-sentinel">
+        <div class="agent-name-display">Vyse</div>
+        <div class="agent-origin"><span class="flag-emoji">🇸🇾</span> Syria</div>
+        <div class="role-badge">🛡 Sentinel</div>
+        <div class="info-divider"></div>
+        <div class="info-label">// Playstyle</div>
+        <div class="info-value">Metal manipulator. Vyse uses hidden traps and metal vines to disarm and disorient enemies, making her the ultimate ambush sentinel for holding sites.</div>
+        <div class="info-label">// Core Strengths</div>
+        <ul class="strengths-list">
+            <li>Steel Garden disarms all enemies in range</li>
+            <li>Arc Rose is a hidden trigger flash</li>
+            <li>Shear creates surprise walls mid-fight</li>
+            <li>Razorvine provides large area denial</li>
+        </ul>
+    </div>
+</div>
+
+        </div><!-- end .agent-displays -->
+</div><!-- end .agent-layout -->
+</div><!-- end .agent-page -->
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2026 Valorant Showcase. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

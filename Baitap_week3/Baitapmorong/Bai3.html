@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3 - Photo Gallery</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            padding: 30px;
+        }
+        h1 { text-align: center; margin-bottom: 30px; font-size: 2rem; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 150px;
+            gap: 15px;
+        }
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,123,255,0.5);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+
+        /* Các ô span khác nhau tạo hiệu ứng Masonry */
+        .item1 { grid-column: span 2; grid-row: span 2; }
+        .item2 { grid-column: span 1; grid-row: span 1; }
+        .item3 { grid-column: span 1; grid-row: span 2; }
+        .item4 { grid-column: span 2; grid-row: span 1; }
+        .item5 { grid-column: span 1; grid-row: span 1; }
+        .item6 { grid-column: span 2; grid-row: span 2; }
+        .item7 { grid-column: span 1; grid-row: span 1; }
+        .item8 { grid-column: span 1; grid-row: span 2; }
+        .item9 { grid-column: span 2; grid-row: span 1; }
+    </style>
+</head>
+<body>
+    <h1>📸 Photo Gallery</h1>
+    <div class="gallery">
+        <div class="gallery-item item1">
+            <img src="https://picsum.photos/seed/g1/800/600" alt="Photo 1">
+            <div class="overlay">🌄 Phong cảnh 1</div>
+        </div>
+        <div class="gallery-item item2">
+            <img src="https://picsum.photos/seed/g2/400/300" alt="Photo 2">
+            <div class="overlay">🌿 Thiên nhiên</div>
+        </div>
+        <div class="gallery-item item3">
+            <img src="https://picsum.photos/seed/g3/400/600" alt="Photo 3">
+            <div class="overlay">🏙️ Thành phố</div>
+        </div>
+        <div class="gallery-item item4">
+            <img src="https://picsum.photos/seed/g4/800/300" alt="Photo 4">
+            <div class="overlay">🌊 Biển cả</div>
+        </div>
+        <div class="gallery-item item5">
+            <img src="https://picsum.photos/seed/g5/400/300" alt="Photo 5">
+            <div class="overlay">🌸 Hoa lá</div>
+        </div>
+        <div class="gallery-item item6">
+            <img src="https://picsum.photos/seed/g6/800/600" alt="Photo 6">
+            <div class="overlay">🏔️ Núi rừng</div>
+        </div>
+        <div class="gallery-item item7">
+            <img src="https://picsum.photos/seed/g7/400/300" alt="Photo 7">
+            <div class="overlay">🌅 Bình minh</div>
+        </div>
+        <div class="gallery-item item8">
+            <img src="https://picsum.photos/seed/g8/400/600" alt="Photo 8">
+            <div class="overlay">🦋 Côn trùng</div>
+        </div>
+        <div class="gallery-item item9">
+            <img src="https://picsum.photos/seed/g9/800/300" alt="Photo 9">
+            <div class="overlay">🌃 Đêm đô thị</div>
+        </div>
+    </div>
+</body>
+</html>

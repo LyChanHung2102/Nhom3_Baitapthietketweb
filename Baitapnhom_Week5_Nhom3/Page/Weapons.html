@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant - Weapons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../Css/weapons.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">VALORANT</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Agent.html">Agents</a></li>
+            <li><a href="Weapons.html">Weapons</a></li>
+        </ul>
+    </nav>
+
+    <!-- Weapons Content -->
+    <section class="armory-section">
+        <div class="tabs-container">
+            <!-- Radio Buttons -->
+            <input type="radio" id="tab-sidearms" name="weapon-tabs" checked>
+            <input type="radio" id="tab-smgs" name="weapon-tabs">
+            <input type="radio" id="tab-shotguns" name="weapon-tabs">
+            <input type="radio" id="tab-rifles" name="weapon-tabs">
+            <input type="radio" id="tab-snipers" name="weapon-tabs">
+            <input type="radio" id="tab-heavy" name="weapon-tabs">
+
+            <!-- Tab Labels -->
+            <div class="tabs-nav">
+                <label for="tab-sidearms">Sidearms</label>
+                <label for="tab-smgs">SMGs</label>
+                <label for="tab-shotguns">Shotguns</label>
+                <label for="tab-rifles">Rifles</label>
+                <label for="tab-snipers">Sniper Rifles</label>
+                <label for="tab-heavy">Heavy</label>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tabs-content">
+                
+                <!-- Category 1: Sidearms -->
+                <div class="tab-panel panel-sidearms">
+                    <p class="category-desc">Compact handguns, cheap or free, typically used in eco rounds or the first pistol round.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Classic.jpg" alt="Classic"></div>
+                            <div class="weapon-info">
+                                <h3>Classic</h3>
+                                <p>Default pistol (free), single-fire or right-click for a 3-round burst.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Shorty.jpg" alt="Shorty"></div>
+                            <div class="weapon-info">
+                                <h3>Shorty</h3>
+                                <p>A miniature double-barreled shotgun, highly lethal at point-blank range.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Frenzy.jpg" alt="Frenzy"></div>
+                            <div class="weapon-info">
+                                <h3>Frenzy</h3>
+                                <p>Fully automatic pistol, high fire rate at close range.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Ghost.jpg" alt="Ghost"></div>
+                            <div class="weapon-info">
+                                <h3>Ghost</h3>
+                                <p>Silenced pistol, high accuracy and good damage.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Sheriff.jpg" alt="Sheriff"></div>
+                            <div class="weapon-info">
+                                <h3>Sheriff</h3>
+                                <p>High-damage revolver, capable of a 1-hit headshot kill at close to medium range.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: SMGs -->
+                <div class="tab-panel panel-smgs">
+                    <p class="category-desc">Fast-firing, highly mobile, suitable for run-and-gun playstyles at close to medium range.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Stinger.jpg" alt="Stinger"></div>
+                            <div class="weapon-info">
+                                <h3>Stinger</h3>
+                                <p>Extremely high fire rate, ideal for close-quarters combat.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Spectre.jpg" alt="Spectre"></div>
+                            <div class="weapon-info">
+                                <h3>Spectre</h3>
+                                <p>Silenced SMG with controllable recoil, very versatile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Shotguns -->
+                <div class="tab-panel panel-shotguns">
+                    <p class="category-desc">Devastating power at close range, typically used for holding tight corners or narrow chokepoints.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Bucky.jpg" alt="Stinger"></div>
+                            <div class="weapon-info">
+                                <h3>Bucky</h3>
+                                <p>Pump-action shotgun with an alternate fire mode for slightly longer-range bursts.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Judge.jpg" alt="Stinger"></div>
+                            <div class="weapon-info">
+                                <h3>Judge</h3>
+                                <p>Semi-automatic shotgun, capable of rapid continuous fire at close range.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Rifles -->
+                <div class="tab-panel panel-rifles">
+                    <p class="category-desc">The most popular weapon group and the primary choice for full-buy rounds.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Bulldog.jpg" alt="Bulldog"></div>
+                            <div class="weapon-info">
+                                <h3>Bulldog</h3>
+                                <p>Budget rifle, features a 3-round burst mode when aiming down sights (ADS).</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Guardian.jpg" alt="Guardian"></div>
+                            <div class="weapon-info">
+                                <h3>Guardian</h3>
+                                <p>Semi-automatic rifle, absolute accuracy and extremely high damage per shot.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Phantom.jpg" alt="Phantom"></div>
+                            <div class="weapon-info">
+                                <h3>Phantom</h3>
+                                <p>Silenced automatic rifle, high fire rate, smooth recoil, 1-hit headshot kill at close range.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Vandal.jpg" alt="Vandal"></div>
+                            <div class="weapon-info">
+                                <h3>Vandal</h3>
+                                <p>Automatic rifle that maintains 160 HP damage (1-hit headshot kill) at any distance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Sniper Rifles -->
+                <div class="tab-panel panel-snipers">
+                    <p class="category-desc">Dedicated scoped weapons designed for long-range engagements.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Marshal.jpg" alt="Marshal"></div>
+                            <div class="weapon-info">
+                                <h3>Marshal</h3>
+                                <p>Lightweight, budget sniper, fast scoping and movement speed.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Outlaw.jpg" alt="Outlaw"></div>
+                            <div class="weapon-info">
+                                <h3>Outlaw</h3>
+                                <p>Double-barreled sniper, deals heavy damage (140) enough to instantly kill enemies with Light Shields.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Operator.jpg" alt="Operator"></div>
+                            <div class="weapon-info">
+                                <h3>Operator</h3>
+                                <p>The most expensive heavy sniper in the game, an instant kill on any body or head shot.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 6: Heavy -->
+                <div class="tab-panel panel-heavy">
+                    <p class="category-desc">Massive magazine size, high wall-penetration capabilities, and suppressive fire.</p>
+                    <div class="weapon-grid">
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Ares.jpg" alt="Ares"></div>
+                            <div class="weapon-info">
+                                <h3>Ares</h3>
+                                <p>Cheaper light machine gun, fire rate increases as the trigger is held.</p>
+                            </div>
+                        </div>
+                        <div class="weapon-card">
+                            <div class="img-placeholder"><img src="../Image/Odin.jpg" alt="Odin"></div>
+                            <div class="weapon-info">
+                                <h3>Odin</h3>
+                                <p>Heavy machine gun with a 100-round magazine, terrifying fire rate used mainly for locking down sites or wall-banging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Valorant Showcase. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

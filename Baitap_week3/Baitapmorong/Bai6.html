@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6 - Admin Dashboard</title>
+    <style>
+        :root {
+            --sidebar-w: 240px;
+            --color-primary: #1a1a2e;
+            --color-accent: #007bff;
+            --color-bg: #f0f4f8;
+            --spacing: 20px;
+            --radius: 10px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: var(--color-bg); display: flex; min-height: 100vh; }
+
+        /* ===== FIXED SIDEBAR ===== */
+        .sidebar {
+            width: var(--sidebar-w);
+            background: var(--color-primary);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing);
+            overflow-y: auto;
+            z-index: 100;
+        }
+        .sidebar .brand {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: var(--color-accent);
+        }
+        .sidebar nav ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .sidebar nav ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: background 0.2s, color 0.2s;
+        }
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li.active a {
+            background: var(--color-accent);
+            color: #fff;
+        }
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: var(--spacing);
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* ===== MAIN CONTENT (cuộn được) ===== */
+        .main {
+            margin-left: var(--sidebar-w);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .topbar {
+            background: #fff;
+            padding: 16px var(--spacing);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .topbar h1 { font-size: 1.2rem; color: var(--color-primary); }
+        .topbar .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .content { padding: var(--spacing); }
+
+        /* ===== STATS CARDS - CSS Grid 4 cột ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing);
+            margin-bottom: var(--spacing);
+        }
+        .stat-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: var(--spacing);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .stat-card .icon {
+            font-size: 2rem;
+        }
+        .stat-card .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        .stat-card .label { color: #888; font-size: 0.9rem; }
+        .stat-card .change { font-size: 0.85rem; }
+        .change.up { color: #28a745; }
+        .change.down { color: #dc3545; }
+
+        /* ===== DATA TABLE ===== */
+        .table-section {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: var(--spacing);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing);
+        }
+        .table-header h2 { font-size: 1.1rem; color: var(--color-primary); }
+        .btn-export {
+            padding: 8px 16px;
+            background: var(--color-accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        thead { background: var(--color-bg); }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        th { font-weight: bold; color: #555; font-size: 0.85rem; text-transform: uppercase; }
+        tr:hover td { background: #f8f9ff; }
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge.success { background: #d4edda; color: #155724; }
+        .badge.warning { background: #fff3cd; color: #856404; }
+        .badge.danger  { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <!-- Fixed Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">⚡ AdminPanel</div>
+        <nav>
+            <ul>
+                <li class="active"><a href="#">📊 Dashboard</a></li>
+                <li><a href="#">👥 Người dùng</a></li>
+                <li><a href="#">🛒 Đơn hàng</a></li>
+                <li><a href="#">📦 Sản phẩm</a></li>
+                <li><a href="#">📈 Thống kê</a></li>
+                <li><a href="#">💬 Tin nhắn</a></li>
+                <li><a href="#">⚙️ Cài đặt</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">v1.0.0 · Admin</div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <h1>📊 Dashboard</h1>
+            <div class="user">
+                <span>Trung Kien</span>
+                <div class="avatar">TK</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon">👥</div>
+                    <div class="value">12,480</div>
+                    <div class="label">Người dùng</div>
+                    <div class="change up">▲ +8.2% tháng này</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🛒</div>
+                    <div class="value">3,254</div>
+                    <div class="label">Đơn hàng</div>
+                    <div class="change up">▲ +5.1% tháng này</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">💰</div>
+                    <div class="value">98.5M₫</div>
+                    <div class="label">Doanh thu</div>
+                    <div class="change down">▼ -2.3% tháng này</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">📦</div>
+                    <div class="value">847</div>
+                    <div class="label">Sản phẩm</div>
+                    <div class="change up">▲ +12 mới</div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-section">
+                <div class="table-header">
+                    <h2>📋 Đơn hàng gần đây</h2>
+                    <button class="btn-export">⬇ Xuất Excel</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Khách hàng</th>
+                            <th>Sản phẩm</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>Áo Thun Premium</td>
+                            <td>01/07/2026</td>
+                            <td>499.000₫</td>
+                            <td><span class="badge success">Hoàn thành</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1002</td>
+                            <td>Trần Thị B</td>
+                            <td>Quần Jeans Slim</td>
+                            <td>02/07/2026</td>
+                            <td>750.000₫</td>
+                            <td><span class="badge warning">Đang xử lý</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1003</td>
+                            <td>Lê Văn C</td>
+                            <td>Giày Sneaker</td>
+                            <td>03/07/2026</td>
+                            <td>1.200.000₫</td>
+                            <td><span class="badge success">Hoàn thành</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1004</td>
+                            <td>Phạm Thị D</td>
+                            <td>Túi Xách Da</td>
+                            <td>04/07/2026</td>
+                            <td>2.100.000₫</td>
+                            <td><span class="badge danger">Đã hủy</span></td>
+                        </tr>
+                        <tr>
+                            <td>#1005</td>
+                            <td>Hoàng Văn E</td>
+                            <td>Mũ Lưỡi Trai</td>
+                            <td>05/07/2026</td>
+                            <td>250.000₫</td>
+                            <td><span class="badge warning">Đang giao</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
